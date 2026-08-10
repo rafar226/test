@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nativa: diseño simple para espacios que se sienten como hogar." />
+
+    <link rel="stylesheet" href="https://beeasy-ai-widget.web.app/styles.css">
+    <script src="https://beeasy-ai-widget.web.app/polyfills.js" type="module"></script>
+    <script src="https://beeasy-ai-widget.web.app/runtime.js" type="module"></script>
+    <script src="https://beeasy-ai-widget.web.app/main.js" type="module"></script>
+
+    <title>Nativa — Objetos para habitar bonito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink:#1d2b27; --paper:#f6f4ee; --clay:#d87656; --leaf:#58745a; --pale:#e5e9d6; --line:#d9ddd2; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; color:var(--ink); background:var(--paper); font-family:"DM Sans",sans-serif; }
+      a { color:inherit; text-decoration:none; }
+      .nav { height:78px; max-width:1240px; padding:0 34px; margin:auto; display:flex; align-items:center; justify-content:space-between; }
+      .brand { font-size:25px; font-weight:600; letter-spacing:-1.5px; display:flex; align-items:center; gap:8px; }
+      .brand i { display:block; width:12px; height:12px; background:var(--clay); border-radius:50% 50% 50% 3px; transform:rotate(-35deg); }
+      .nav-links { display:flex; gap:29px; font-size:14px; }
+      .nav-cta { font-size:13px; padding:11px 17px; border:1px solid var(--ink); border-radius:99px; }
+      .hero { min-height:615px; max-width:1240px; padding:66px 34px 80px; margin:auto; display:grid; grid-template-columns:1.06fr .94fr; gap:45px; align-items:center; }
+      .eyebrow { color:var(--leaf); font-family:"DM Mono",monospace; text-transform:uppercase; letter-spacing:1.4px; font-size:11px; display:flex; gap:9px; align-items:center; }
+      .eyebrow span { width:28px; height:1px; background:currentColor; }
+      h1 { font-family:"Playfair Display",serif; font-size:clamp(49px,6.1vw,82px); font-weight:600; line-height:.98; letter-spacing:-3px; margin:20px 0 25px; max-width:670px; }
+      h1 em { color:var(--clay); font-weight:600; }
+      .intro { color:#5d6760; line-height:1.65; font-size:17px; max-width:490px; margin:0 0 31px; }
+      .button { display:inline-flex; align-items:center; gap:20px; border-radius:99px; background:var(--ink); color:white; padding:15px 18px 15px 22px; font-size:14px; }
+      .button b { font-size:19px; font-weight:400; line-height:12px; }
+      .art { position:relative; height:470px; background:#d9decf; overflow:hidden; }
+      .sun { width:174px; height:174px; position:absolute; border-radius:50%; background:#edac64; top:53px; right:78px; }
+      .window { position:absolute; width:263px; height:314px; right:57px; bottom:0; border:10px solid #f3f0e7; border-bottom:0; background:#b4c5ba; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; }
+      .window span { border:2px solid #f3f0e7; }
+      .arch { position:absolute; width:243px; height:325px; left:62px; bottom:0; background:#d47859; border-radius:125px 125px 0 0; }
+      .arch:after { content:""; position:absolute; inset:42px 41px 0; background:#243c34; border-radius:90px 90px 0 0; }
+      .plant { position:absolute; left:19px; bottom:79px; width:138px; height:198px; z-index:2; }
+      .stem { position:absolute; background:#345b48; width:6px; height:180px; bottom:0; left:70px; transform:rotate(22deg); transform-origin:bottom; }
+      .leaf { position:absolute; width:62px; height:28px; background:#436e57; border-radius:100% 0 100% 0; }
+      .leaf:nth-child(2){left:6px;top:48px;transform:rotate(18deg)} .leaf:nth-child(3){left:57px;top:10px;transform:rotate(75deg)} .leaf:nth-child(4){left:73px;top:75px;transform:rotate(65deg)} .leaf:nth-child(5){left:23px;top:105px;transform:rotate(3deg)}
+      .tag { position:absolute; bottom:26px; right:24px; z-index:3; color:white; font:11px "DM Mono"; letter-spacing:.4px; background:var(--ink); padding:12px 14px; }
+      .ticker { background:var(--ink); color:#f7f4eb; height:65px; display:flex; align-items:center; justify-content:center; gap:45px; white-space:nowrap; overflow:hidden; font:12px "DM Mono",monospace; letter-spacing:.5px; }
+      .ticker b { color:#e9a982; font-size:18px; }
+      .collection { max-width:1240px; padding:105px 34px; margin:auto; }
+      .section-top { display:flex; align-items:end; justify-content:space-between; margin-bottom:38px; }
+      .section-top h2 { font:600 clamp(32px,4vw,50px)/1 "Playfair Display",serif; letter-spacing:-1.6px; margin:0; }
+      .section-top a { font-size:13px; border-bottom:1px solid var(--ink); padding-bottom:4px; }
+      .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+      .card-image { height:270px; position:relative; overflow:hidden; }
+      .card-image.one { background:#e9d8bf; } .card-image.two { background:#b8c8bc; } .card-image.three { background:#d9c3bb; }
+      .shape { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); }
+      .vase { width:112px; height:156px; background:#c96e53; border-radius:20px 20px 48px 48px; } .vase:before { content:""; position:absolute; width:62px; height:45px; background:#c96e53; left:25px; top:-31px; border-radius:10px 10px 0 0; }
+      .chair { width:142px; height:98px; border:17px solid #805e47; border-bottom:0; border-radius:55px 55px 0 0; } .chair:after { content:""; position:absolute; width:108px; height:28px; background:#805e47; top:90px; left:0; }
+      .lamp { width:125px; height:78px; background:#f4ecda; clip-path:polygon(18% 0,82% 0,100% 100%,0 100%); } .lamp:after { content:""; position:absolute; height:110px; width:5px; background:#35443b; left:60px; top:75px; }
+      .card h3 { font-size:16px; margin:15px 0 4px; font-weight:500; } .card p { color:#68726b; font-size:13px; margin:0; }
+      .about { background:var(--pale); padding:83px 34px; }
+      .about-inner { max-width:1000px; margin:auto; display:grid; grid-template-columns:130px 1fr; gap:44px; }
+      .about-mark { font:600 85px/.7 "Playfair Display",serif; color:var(--clay); }
+      .about h2 { font:600 clamp(31px,3.5vw,45px)/1.1 "Playfair Display",serif; letter-spacing:-1.3px; max-width:670px; margin:0 0 18px; }
+      .about p { color:#536157; max-width:570px; line-height:1.65; }
+      footer { max-width:1240px; padding:30px 34px 42px; margin:auto; display:flex; justify-content:space-between; color:#617067; font-size:12px; }
+      /* Punto de montaje listo para reemplazar con el script de tu chatbot. */
+      #chatbot-demo-anchor { position:fixed; right:24px; bottom:24px; z-index:20; width:56px; height:56px; border-radius:50%; background:var(--clay); box-shadow:0 8px 25px #3c241d44; display:grid; place-items:center; color:white; border:2px solid #f8eee9; }
+      #chatbot-demo-anchor svg { width:24px; }
+      @media(max-width:760px){ .nav{padding:0 20px;height:68px}.nav-links{display:none}.nav-cta{display:none}.hero{padding:45px 20px 56px;grid-template-columns:1fr;gap:36px;min-height:0}h1{letter-spacing:-2px}.art{height:360px}.arch{left:35px;transform:scale(.83);transform-origin:bottom left}.window{right:12px;transform:scale(.8);transform-origin:bottom right}.sun{right:44px;top:32px;transform:scale(.75)}.collection{padding:72px 20px}.cards{grid-template-columns:1fr;gap:34px}.card-image{height:250px}.about{padding:63px 20px}.about-inner{grid-template-columns:1fr;gap:22px}.about-mark{font-size:65px}footer{padding:26px 20px 88px;flex-direction:column;gap:9px}.ticker{justify-content:flex-start;padding-left:20px;gap:22px}.section-top{margin-bottom:28px} }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <a href="#inicio" class="brand" aria-label="Nativa, inicio"><i></i>nativa</a>
+      <nav class="nav-links" aria-label="Navegación principal"><a href="#coleccion">Colección</a><a href="#nosotros">Nuestro mundo</a><a href="#contacto">Contacto</a></nav>
+      <a class="nav-cta" href="#contacto">Visitanos</a>
+    </header>
+    <main>
+      <section id="inicio" class="hero">
+        <div>
+          <div class="eyebrow"><span></span> Buenos Aires · Argentina</div>
+          <h1>Objetos para<br />habitar <em>bonito.</em></h1>
+          <p class="intro">Piezas simples, materiales nobles y diseño consciente para hacer de todos los días algo especial.</p>
+          <a class="button" href="#coleccion">Conocé la colección <b>→</b></a>
+        </div>
+        <div class="art" aria-label="Ilustración de un rincón cálido de una casa">
+          <div class="sun"></div><div class="arch"></div><div class="window"><span></span><span></span><span></span><span></span></div>
+          <div class="plant"><div class="stem"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div></div>
+          <div class="tag">HECHO PARA DURAR</div>
+        </div>
+      </section>
+      <div class="ticker"><span>DISEÑO LOCAL</span><b>✳</b><span>MATERIALES CONSCIENTES</span><b>✳</b><span>ENVÍOS A TODO EL PAÍS</span></div>
+      <section id="coleccion" class="collection">
+        <div class="section-top"><h2>Para disfrutar sin apuro.</h2><a href="#contacto">Ver todo →</a></div>
+        <div class="cards">
+          <article class="card"><div class="card-image one"><div class="shape vase"></div></div><h3>Vajilla de mesa</h3><p>Para rituales cotidianos</p></article>
+          <article class="card"><div class="card-image two"><div class="shape chair"></div></div><h3>Muebles con historia</h3><p>Diseño que acompaña</p></article>
+          <article class="card"><div class="card-image three"><div class="shape lamp"></div></div><h3>Luz y ambiente</h3><p>Pequeños gestos, grandes cambios</p></article>
+        </div>
+      </section>
+      <section id="nosotros" class="about"><div class="about-inner"><div class="about-mark">N.</div><div><h2>Creemos que los espacios también cuentan quiénes somos.</h2><p>Elegimos piezas con carácter, de producción cuidada y belleza honesta. Para que tu casa no se parezca a ninguna otra: se parezca a vos.</p></div></div></section>
+    </main>
+    <footer id="contacto"><span>© 2026 Nativa Estudio</span><span>Buenos Aires, Argentina · hola@nativa.com</span></footer>
+    <!-- <div id="chatbot-demo-anchor" aria-label="Espacio para integrar el chatbot de Beeasy" title="Integrá aquí tu chatbot de Beeasy">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-9.75 7.17L5 21l1.26-4.18A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" stroke-linecap="round" stroke-width="2.5"/></svg>
+    </div> -->
+    <chat-widget
+  workSpaceClientId="CiatoPZDFvFCF2JjnSeP"
+></chat-widget>
+  </body>
+</html>
+
+
+<!-- CiatoPZDFvFCF2JjnSeP -->
